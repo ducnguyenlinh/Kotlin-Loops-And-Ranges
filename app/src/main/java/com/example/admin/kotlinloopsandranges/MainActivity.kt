@@ -37,6 +37,7 @@ class MainActivity : AppCompatActivity() {
                 y++
             } while (y < 5)
 
+            //------------------------------------------------------
             //Ranges
             for (i in 1..10) //equivalent of 1<= i && i<=10
                 Log.d("Ranges ", "" + i)
@@ -49,6 +50,27 @@ class MainActivity : AppCompatActivity() {
 
             for (i in 1 until 10) //[1,10) 10 is exclued
                 Log.d("Until", "" + i)
+
+            //-------------------------------------------------------
+            //Collections
+            val numbers = mutableListOf<Int>(1,2,3,4,5,6,7,8)
+
+            numbers.add(10)
+            for (i in numbers)
+                Log.d("Numbers", i.toString())
+
+            Log.d("FIRST ITEM", numbers.first().toString())
+            Log.d("LAST ITEM", numbers.last().toString())
+            Log.d("FILTER", numbers.filter { it%2!= 0 }.toString())
+
+
+            val noDuplicate = hashSetOf<String>("a", "b", "c", "d")
+            for (item in noDuplicate.toSortedSet())
+                Log.d("Duplicate", item)
+
+            val myHashMap = hashMapOf<String, Int>("First" to 5, "Second" to 20)
+            Log.d("HashMap FIRST", myHashMap["First"].toString())
+            Log.d("HashMap SECOND", myHashMap["Second"].toString())
         }
     }
 }
